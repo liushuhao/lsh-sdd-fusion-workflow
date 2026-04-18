@@ -76,7 +76,7 @@
    ## Error Handling
    ```
 
-9. 【spec self-review】⚠️ SuperPowers 特色
+8. 【spec self-review】⚠️ SuperPowers 特色
    调用 brainstorming skill 进行 spec self-review：
    - 检查 design.md：
    - Placeholder scan: 无 TBD/TODO
@@ -84,12 +84,12 @@
    - Scope check: 范围明确
    - Ambiguity check: 无歧义
 
-10. 【Gate-2】呈现设计方案，等待用户确认
+9. 【Gate-2】呈现设计方案，等待用户确认
     - 展示 design.md 摘要 + Delta Specs 预览
     - "同意" → 继续
     - "需要修改" → 修改后重新 Gate-2
 
-11. skill("writing-plans") ⚠️ SuperPowers TDD 任务
+10. skill("writing-plans") ⚠️ SuperPowers TDD 任务
     基于 design.md 生成 tasks.md（**tasks.md 使用 SuperPowers 模板，不是 design.md**）：
     
     **⚠️ 重要**: writing-plans 只生成任务内容，**不写入文件**
@@ -103,15 +103,15 @@
     
     **详细模板见本文档「TDD 任务格式」章节。**
 
-12. 【openspec verify】检查 artifacts 完整性
+11. 【openspec verify】检查 artifacts 完整性
     openspec verify --change <name>
 
-13. 【Gate-3】呈现任务清单，等待用户确认
+12. 【Gate-3】呈现任务清单，等待用户确认
     - 展示 tasks.md 预览
     - "开始实现" → 继续
     - "需要调整" → 修改后重新 Gate-3
 
-14. 生成完成提示
+13. 生成完成提示
     "所有 artifacts 已生成！运行 /lsh-opsx-sp apply:<name> 开始实现"
 ```
 

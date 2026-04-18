@@ -55,10 +55,11 @@ NO PRODUCTION CODE WITHOUT TDD TEST FIRST
 
 ```
 /lsh-opsx-sp-omo 优化选股性能       → 新建变更，完整流程 explore → propose → apply
-/lsh-opsx-sp-omo apply:feat-auth     → 执行 apply（需先完成 propose）
+/lsh-opsx-sp-omo apply:feat-auth     → 执行 apply（支持断点续传）
 /lsh-opsx-sp-omo propose:feat-auth  → 执行 propose（需先完成 explore）
 /lsh-opsx-sp-omo reset:feat-auth    → 重置变更
 /lsh-opsx-sp-omo archive:feat-auth  → 查看/执行归档
+/lsh-opsx-sp-omo continue:feat-auth → 继续中断的变更（apply 的语义别名）
 ```
 
 **无前缀处理规则**：无前缀输入强制执行完整流程（explore → propose → apply），中间每个 Gate 需用户确认。

@@ -59,7 +59,7 @@
    When: [触发动作]
    Then: [预期结果]
 
-8. 【生成 design.md】⚠️ 使用 OpenSpec 模板
+7. 【生成 design.md】⚠️ 使用 OpenSpec 模板
    按 openspec instructions 返回的 template 填充内容：
    
    ## Intent
@@ -68,7 +68,7 @@
    ## Data Flow
    ## Error Handling
 
-9. 【spec self-review】⚠️ SuperPowers 特色
+8. 【spec self-review】⚠️ SuperPowers 特色
    调用 brainstorming skill 进行 spec self-review：
    - 检查 design.md：
    - Placeholder scan: 无 TBD/TODO
@@ -76,7 +76,7 @@
    - Scope check: 范围明确
    - Ambiguity check: 无歧义
 
-10. 【Metis 审查】⚠️ OMO 增强
+9. 【Metis 审查】⚠️ OMO 增强
     task(subagent_type: "metis", prompt: `分析以下 design.md，识别隐藏意图和潜在问题：
     
     [读取 design.md 内容]
@@ -89,12 +89,12 @@
     - 识别歧义和 AI 失败点
     - 输出分析结果供 Gate-2 参考
 
-11. 【Gate-2】呈现设计方案 + Metis 分析，等待用户确认
+10. 【Gate-2】呈现设计方案 + Metis 分析，等待用户确认
     - 展示 design.md 摘要 + Delta Specs 预览
     - "同意" → 继续
     - "需要修改" → 修改后重新 Gate-2
 
-12. skill("writing-plans") ⚠️ SuperPowers TDD 任务
+11. skill("writing-plans") ⚠️ SuperPowers TDD 任务
     基于 design.md 生成 tasks.md（**tasks.md 使用 SuperPowers 模板，不是 design.md**）：
     
     **tasks.md 格式要点：**
@@ -104,10 +104,10 @@
     
     **详细模板见本文档「TDD 任务格式」章节。**
 
-13. 【openspec verify】检查 artifacts 完整性
+12. 【openspec verify】检查 artifacts 完整性
     openspec verify --change <name>
 
-14. 【Momus 审查】⚠️ OMO 增强
+13. 【Momus 审查】⚠️ OMO 增强
     task(subagent_type: "momus", prompt: `审查以下 tasks.md 计划：
     
     [读取 tasks.md 内容]
@@ -120,12 +120,12 @@
     - 验证可测量性
     - 验证上下文充分性
 
-15. 【Gate-3】呈现任务清单 + Momus 审查结果，等待用户确认
+14. 【Gate-3】呈现任务清单 + Momus 审查结果，等待用户确认
      - 展示 tasks.md 预览
      - "开始实现" → 继续
      - "需要调整" → 修改后重新 Gate-3
 
-16. 生成完成提示
+15. 生成完成提示
      "所有 artifacts 已生成！运行 /lsh-opsx-sp-omo apply:<name> 开始实现"
 ```
 
