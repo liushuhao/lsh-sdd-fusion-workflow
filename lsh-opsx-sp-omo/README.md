@@ -85,6 +85,11 @@ Plus OMO agents:
 - Oracle
 - Hephaestus (x5)
 
+> ⚠️ **Important**: This workflow uses `openspec/changes/<name>/tasks.md` for task output, but the `writing-plans` skill defaults to `docs/superpowers/plans/`. To align the output path, modify your `writing-plans` skill:
+> - Edit: `~/.config/opencode/skill/writing-plans/SKILL.md`
+> - Change line 20 from: `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
+> - To: `openspec/changes/<name>/tasks.md`
+
 ### Gate Mechanism
 
 Each phase transition requires explicit user confirmation:
@@ -160,6 +165,11 @@ git init  # if not already a git repo
 - Momus
 - Oracle
 - Hephaestus (x5)
+
+> ⚠️ **重要**：此工作流使用 `openspec/changes/<name>/tasks.md` 作为任务输出路径，但 `writing-plans` skill 默认输出到 `docs/superpowers/plans/`。如需对齐输出路径，请修改 `writing-plans` skill：
+> - 编辑：`~/.config/opencode/skill/writing-plans/SKILL.md`
+> - 将第 20 行从：`docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
+> - 改为：`openspec/changes/<name>/tasks.md`
 
 ### 安装
 
