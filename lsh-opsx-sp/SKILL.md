@@ -1,6 +1,6 @@
 ---
 name: lsh-opsx-sp
-description: "OpenSpec + SuperPowers 融合工作流。OpenSpec 提供需求文档骨架和变更管理，SuperPowers 提供 TDD 执行和代码质量保障。单一入口，触发式路由：前缀(apply:/propose:/reset:/archive:) + 关键词(explore/propose/apply)。强制 brainstorming、TDD、debugging、code-review、verification、git-worktrees、finishing-branch。"
+description: "OpenSpec + SuperPowers 融合工作流。OpenSpec 提供需求文档骨架和变更管理，SuperPowers 提供 TDD 执行和代码质量保障。单一入口，触发式路由：前缀(apply:/propose:/reset:/archive:/continue:) + 关键词(explore/propose/apply)。强制 brainstorming、TDD、debugging、code-review、verification、git-worktrees、finishing-branch。"
 argument-hint: "<前缀>:<内容> | <需求描述>"
 license: MIT
 compatibility: Requires openspec CLI (npm install -g @fission-ai/openspec@latest), openspec init, git repo, and SuperPowers skills.

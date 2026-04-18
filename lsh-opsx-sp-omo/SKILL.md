@@ -1,6 +1,6 @@
 ---
 name: lsh-opsx-sp-omo
-description: "OpenSpec + SuperPowers + oh-my-opencode 融合工作流。通过 OMO 智能体增强顾问能力（Metis/Momus/Oracle），Hephaestus x5 并行执行，TDD 质量保障。单一入口，触发式路由：前缀(apply:/propose:/reset:/archive:) + 关键词(explore/propose/apply)。"
+description: "OpenSpec + SuperPowers + oh-my-opencode 融合工作流。通过 OMO 智能体增强顾问能力（Metis/Momus/Oracle），Hephaestus x5 并行执行，TDD 质量保障。单一入口，触发式路由：前缀(apply:/propose:/reset:/archive:/continue:) + 关键词(explore/propose/apply)。"
 argument-hint: "<前缀>:<内容> | <需求描述>"
 license: MIT
 compatibility: Requires openspec CLI, SuperPowers skills, and oh-my-opencode agents.
