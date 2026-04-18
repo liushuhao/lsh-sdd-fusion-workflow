@@ -26,22 +26,31 @@
    - IF 任何 artifact 缺失 → 拒绝执行
    - ELSE 继续
 
-3. 【读取】初始上下文
+3. 【状态检测】⚠️ 断点续传支持
+   检查是否存在未完成的 worktree：
+   - IF worktree 存在 → 检测 tasks.md 进度
+     - 显示："检测到未完成变更，继续？"
+     - 用户选择"继续" → 从断点执行
+     - 用户选择"跳过" → 跳过阻塞任务
+     - 用户选择"重新开始" → 删除旧 worktree，重新创建
+   - ELSE worktree 不存在 → 继续步骤 5
+
+5. 【读取】初始上下文
    - openspec/specs/
    - openspec/changes/<name>/design.md
    - openspec/changes/<name>/tasks.md
 
-4. skill("using-git-worktrees")
+6. skill("using-git-worktrees")
    - 创建 git worktree 隔离环境
 
-5. 【分析任务依赖图】⚠️ OMO 任务编排
+7. 【分析任务依赖图】⚠️ OMO 任务编排
    分析 tasks.md 中的任务依赖关系，识别可并行执行的任务组：
    - 无依赖任务 → 可并行
    - 有依赖任务 → 按依赖顺序执行
    
    输出：任务分组列表
 
-6. 【Hephaestus x5 并行执行】⚠️ OMO 增强
+8. 【Hephaestus x5 并行执行】⚠️ OMO 增强
    5 个 Hephaestus 智能体并行执行 TDD 循环：
    
    task(subagent_type: "hephaestus") x5
@@ -64,35 +73,35 @@
    - skill("requesting-code-review")
    - 标记任务完成 - [ ] → - [x]
 
-7. 如 TDD 测试失败 → skill("systematic-debugging") ⚠️ OMO Oracle 协助
+9. 如 TDD 测试失败 → skill("systematic-debugging") ⚠️ OMO Oracle 协助
    - 追溯根因
    - 如需架构决策，调用 task(subagent_type: "oracle")
    - 读取 skill(systematic-debugging)/root-cause-tracing.md
    - 读取 skill(systematic-debugging)/condition-based-waiting.md
    - 读取 skill(systematic-debugging)/defense-in-depth.md
 
-8. 双重验证 ⚠️ OpenSpec + SuperPowers
-   - OpenSpec 维度：
-     openspec verify --change <name>
-     检查 Completeness / Correctness / Coherence
-   
-   - SuperPowers 维度：
-     skill("verification-before-completion")
-     验证代码质量、测试覆盖率
-   
-   - 如验证失败 → 触发 Fluid 回退
+10. 双重验证 ⚠️ OpenSpec + SuperPowers
+    - OpenSpec 维度：
+      openspec verify --change <name>
+      检查 Completeness / Correctness / Coherence
+    
+    - SuperPowers 维度：
+      skill("verification-before-completion")
+      验证代码质量、测试覆盖率
+    
+    - 如验证失败 → 触发 Fluid 回退
 
-9. skill("finishing-a-development-branch")
-   - 验证测试通过
-   - Git commit + tag
-   - 呈现合并选项
-   - 执行用户选择的合并操作
+11. skill("finishing-a-development-branch")
+    - 验证测试通过
+    - Git commit + tag
+    - 呈现合并选项
+    - 执行用户选择的合并操作
 
-10. skill("openspec-archive-change")
+12. skill("openspec-archive-change")
     - 检查 artifact 完成状态
     - 检查 task 完成状态
     - 评估 delta spec 同步状态
     - 执行 archive（移动到 openspec/changes/archive/）
 
-11. 完成
+13. 完成
 ```
