@@ -29,6 +29,26 @@ NO PRODUCTION CODE WITHOUT TDD TEST FIRST
 | **propose** | artifact 模板、Delta Specs | brainstorming 完整模式、writing-plans | Metis 隐藏问题分析、Momus 计划审查 |
 | **apply** | tasks 列表、进度追踪 | TDD、verification | Hephaestus x5 并行执行 |
 
+## 前置检测（自动修复）
+
+每次调用 `/lsh-opsx-sp-omo` 时，AI 必须自动执行以下检测。**检测失败时自动修复，无需用户干预。**
+
+| 检测项 | 验证方式 | 失败处理 |
+|--------|----------|----------|
+| **openspec CLI** | `openspec --version` 返回版本号 | 自动：`npm install -g @fission-ai/openspec@latest` |
+| **openspec 初始化** | `openspec/` 目录存在 | 自动：`openspec init --tools opencode` |
+| **Git 仓库** | `git rev-parse --is-inside-work-tree` 返回 true | 自动：`git init` |
+
+**执行流程**：
+```
+1. 检测 openspec CLI → 失败则自动安装 → 重试验证
+2. 检测 openspec/ 目录 → 失败则自动初始化 → 重试验证
+3. 检测 git 仓库 → 失败则自动初始化
+4. 全部通过 → 继续执行
+```
+
+> **注意**：如果自动修复失败（例如网络问题权限问题），才提示用户手动处理。
+
 ## 命令
 
 单一入口 `/lsh-opsx-sp-omo`，根据输入自动路由：
